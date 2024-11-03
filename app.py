@@ -24,9 +24,7 @@ app.layout = html.Div(className='back',children=[
         html.Div('',className='empty'),
         dcc.Link(html.Button('SIR Model', className='boton edo_3'), href='/SIR'),
         html.Div('',className='empty'),
-        dcc.Link(html.Button('Critical Points', className='boton edo_4'), href='/criticalPoint'),
-        html.Div('',className='empty'),
-        dcc.Link(html.Button('Virus SEIARS Model', className='boton edo_5'), href='/SEIARS')
+        dcc.Link(html.Button('Critical Points', className='boton edo_4'), href='/criticalPoint')
     ]),
     
     dash.page_container
