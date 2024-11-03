@@ -1,0 +1,42 @@
+/** En pantallas grandes, se distribuyen horizontalmente **/
+@media (min-width: 768px) {
+    .div_parametros {
+        width: 40%; /* Ajustar ancho en pantallas más grandes */
+        margin-right: 10px;
+    }
+
+    .div_grafica {
+        width: 60%; /* Ajustar ancho en pantallas más grandes */
+        margin-left: 10px;
+    }
+
+    .Pages {
+        flex-direction: row; /* Mostrar en fila en pantallas grandes */
+    }
+
+    .boton {
+        margin: 10px; /* Los botones ocupan todo el ancho en pantallas pequeñas */
+    }
+}
+
+/* Ajustar el tamaño de los inputs en pantallas pequeñas */
+@media (max-width: 768px) {
+    .div_flex > div {
+        width: 100%; /* Cada input toma el 100% del ancho en pantallas pequeñas */
+        margin-bottom: 10px;
+        text-align: center;
+    }
+
+    .sm_logo {
+        height: 50px; /* Reducir el logo en pantallas pequeñas */
+    }
+
+    .main_title {
+        font-size: 1.2em; /* Ajustar el tamaño del título en pantallas pequeñas */
+    }
+
+    .boton {
+        width: 90%;
+        margin: 5px; /* Los botones ocupan todo el ancho en pantallas pequeñas */
+    }
+}

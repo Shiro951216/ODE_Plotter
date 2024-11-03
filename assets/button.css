@@ -1,0 +1,89 @@
+/** Cinta de navegación **/
+.contenedor_navegacion {
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Hacer que los botones se envuelvan si es necesario */
+    height: auto;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    unicode-bidi: isolate;
+}
+
+/** Estilo general para los botones **/
+
+.boton {
+    background-color: transparent; /* Color de fondo */
+    text-decoration: none; /* Elimina el subrayado */
+    border-radius: 10px; /* Bordes redondeados */
+    font-weight: 500; /* Peso de la fuente */
+    width: auto; /* Ancho automático */
+    padding: 12px 24px; /* Ajustar padding para mayor comodidad */
+    font-size: 1em; /* Tamaño de texto adaptable */
+    justify-content: center; /* Centra el texto horizontalmente */
+    align-items: center; /* Centra el texto verticalmente */
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+    transition: background-color 0.3s, transform 0.2s; /* Transición suave */
+}
+
+/** Boton 1 **/
+.edo_1:hover {
+    color: white; /* Cambiar color del texto al pasar el mouse */
+    background-color: rgb(0, 0, 0); /* Cambiar color de fondo al pasar el mouse */
+    transform: scale(1.05); /* Aumentar ligeramente el tamaño al pasar el mouse */
+}
+
+/** Boton 2 **/
+.edo_2:hover {
+    color: white; /* Cambiar color del texto al pasar el mouse */
+    background-color: rgb(0, 0, 0); /* Cambiar color de fondo al pasar el mouse */
+    transform: scale(1.05); /* Aumentar ligeramente el tamaño al pasar el mouse */
+}
+
+/** Boton 3 **/
+.edo_3:hover {
+    color: white; /* Cambiar color del texto al pasar el mouse */
+    background-color: rgb(0, 0, 0); /* Cambiar color de fondo al pasar el mouse */
+    transform: scale(1.05); /* Aumentar ligeramente el tamaño al pasar el mouse */
+}
+
+/** Boton 4 **/
+.edo_4:hover {
+    color: white; /* Cambiar color del texto al pasar el mouse */
+    background-color: rgb(0, 0, 0); /* Cambiar color de fondo al pasar el mouse */
+    transform: scale(1.05); /* Aumentar ligeramente el tamaño al pasar el mouse */
+}
+
+/** Estilo específico para el botón de alternar el campo de vectores **/
+.toggle-button {
+    background-color: rgb(255, 255, 255); /* Color de fondo */
+    color: rgb(0, 0, 0); /* Color del texto */
+    text-decoration: none; /* Elimina el subrayado */
+    font-weight: 300; /* Peso de la fuente */
+    width: auto; /* Ancho automático */
+    padding: 12px 24px; /* Ajustar padding para mayor comodidad */
+    margin-top: 30px; /* Separar botones */
+    margin-left: 10px;
+    font-size: 1em; /* Tamaño de texto adaptable */
+    display: flex; /* Usar flexbox para centrar contenido */
+    justify-content: center; /* Centra el texto horizontalmente */
+    align-items: center; /* Centra el texto verticalmente */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+    transition: background-color 0.3s, transform 0.2s; /* Transición suave */
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+/** Efecto hover para el botón de alternar **/
+.toggle-button:hover {
+    background-color: rgb(0, 0, 0); /* Color de fondo al pasar el mouse */
+    transform: scale(1.05); /* Aumentar ligeramente el tamaño al pasar el mouse */
+    color: rgb(255, 255, 255);
+}
+
+/** Efecto al hacer clic en el botón de alternar **/
+.toggle-button:active {
+    transform: scale(0.95);
+    background-color: rgb(121, 118, 118); /* Reducir el tamaño al hacer clic */
+}

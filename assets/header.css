@@ -1,0 +1,50 @@
+body {
+    background-color: #f2f2f2;
+    color: #333;
+    margin: 0;
+}
+
+.header {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en pantallas pequeñas */
+    height: auto;
+    align-items: center;
+    margin: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.header-content {
+    display: flex;  /* Align items horizontally */
+    align-items: center;  /* Center items vertically */
+    width: 100%;
+}
+
+.sm_logo {
+    position: absolute;
+    height: 75px; /* Tamaño fijo pero reducido para mejor ajuste */
+    flex: 0 0;
+}
+
+.main_title {
+    flex: 1 0;
+    font-size: 1.5em; /* Texto adaptable */
+    text-align: center;
+}
+
+.div_flex {
+    display: flex;
+    flex-wrap: wrap; /* Permitir que los elementos se ajusten en pantallas pequeñas */
+    justify-content: space-between;
+}
+
+.div_flex > div {
+    flex: 1 1 45%; /* Cada elemento toma un 45% de espacio en pantallas más grandes */
+    margin: 5px; /* Espacio entre los elementos */
+}
+.empty {
+    width: 150px;
+}

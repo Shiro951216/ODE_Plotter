@@ -1,0 +1,28 @@
+/** Pages **/
+.Pages {
+    width: auto;
+    height: auto;
+    margin: 10px;
+    display: flex;
+    flex-direction: column; /* Cambia a columna para mejor ajuste en pantallas pequeñas */
+    justify-content: center;
+    padding: 10px;
+    font-family: inherit;
+}
+
+.div_parametros {
+    flex: 1;
+    background-color: rgb(255, 255, 255);
+    width: 100%; /* Ocupan todo el ancho en pantallas pequeñas */
+    padding: 10px;
+    margin: 20px; /* Separar visualmente los bloques */
+    box-sizing: border-box; /* Incluir padding en el cálculo del ancho */
+}
+.div_grafica{
+    flex:1;
+    background-color: rgb(255, 255, 255);
+    width: 100%; /* Ocupan todo el ancho en pantallas pequeñas */
+    padding: 10px;
+    margin: 20px; /* Separar visualmente los bloques */
+    box-sizing: border-box;
+}
