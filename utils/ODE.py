@@ -1,6 +1,7 @@
 import plotly.graph_objects as go
 import plotly.figure_factory as ff
 import numpy as np
+import sympy as sp
 from sympy import symbols, sympify, solve
 
 def points_ODE(dx_input, dy_input, n, scale):
@@ -20,23 +21,27 @@ def points_ODE(dx_input, dy_input, n, scale):
 
     fig = go.Figure()
 
-    if ((dx_input != None) or (dx_input == '')) and ((dy_input != None) or (dy_input == '')) :
+    try:
         
         # Define symbols
-        x_sym, y_sym = symbols("x y")
+        x_sym, y_sym = sp.symbols("x y")
 
         # Convert input expressions to symbolic form
-        dx = sympify(dx_input)
-        dy = sympify(dy_input)
+        dx = sp.sympify(dx_input)
+        dy = sp.sympify(dy_input)
 
-        # Calculate critical points
-        A = np.array(solve([dx, dy], (x_sym, y_sym))).astype(float)
-        x_min, x_max = A[:,0].min(), A[:,0].max()
-        y_min, y_max = A[:,1].min(), A[:,1].max()
+        # dx_lambd = sp.lambdify((x_sym,y_sym), dx, 'numpy')
+        # dy_lambd = sp.lambdify((x_sym,y_sym), dy, 'numpy')
 
+        # # find jacobian
+        # A = sp.Matrix([dx, dy])
+        # X = sp.Matrix([x_sym, y_sym])
+        # J = A.jacobian(X)
+        # eig = J.eigenvals()
+        
         # Create a mesh grid for the plot
-        x_vals = np.linspace(x_min - 2, x_max + 2, n)
-        y_vals = np.linspace(y_min - 2, y_max + 2, n)
+        x_vals = np.linspace(-5, 5, n)
+        y_vals = np.linspace(-5, 5, n)
         X_, Y_ = np.meshgrid(x_vals, y_vals)
 
         # Create empty matrices to store the vector field components
@@ -49,13 +54,27 @@ def points_ODE(dx_input, dy_input, n, scale):
                 V[i, j] = dy.subs({x_sym: X_[i, j], y_sym: Y_[i, j]})
 
         # Normalize the vector field
-        N = np.hypot(U, V) + 1e-9  # Prevent division by zero
+        N = np.hypot(U, V) + 1e-8  # Prevent division by zero
         U_normalized = U / N
         V_normalized = V / N
-        
-        quiver = ff.create_quiver(X_, Y_, U_normalized, V_normalized, scale = scale, name = 'Vector Field')
+
+        quiver = ff.create_quiver(X_ - 0.25*U_normalized, Y_ - 0.25*V_normalized, U_normalized, V_normalized, scale=scale,
+                                line=dict(color='blue', width=1),
+                                name='Vector Field')
         fig.add_traces(quiver.data)
-        fig.add_traces(go.Scatter(x = A[:,0], y = A[:,1], mode='markers', name = 'Critical Points', marker=dict(size=10)))
+
+        try:
+        # Calculate critical points
+            A = np.array(sp.solve([dx, dy], (x_sym, y_sym))).astype(float)
+            fig.add_traces(go.Scatter(x = A[:,0], y = A[:,1], mode='markers',marker=dict(size=10),
+                                  name='Eq Point'))
+        except:
+            pass
+
+    except:
+        pass
+    
+   
 
     fig.update_layout(
         title={
