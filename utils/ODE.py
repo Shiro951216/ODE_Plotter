@@ -4,7 +4,7 @@ import numpy as np
 import sympy as sp
 from sympy import symbols, sympify, solve
 
-def points_ODE(dx_input, dy_input, n, scale):
+def points_ODE(dx_input, dy_input, a, b, c, d, n, scale):
     """
     Generates a vector field plot from given first-order ordinary differential equations (ODEs).
     
@@ -40,8 +40,8 @@ def points_ODE(dx_input, dy_input, n, scale):
         # eig = J.eigenvals()
         
         # Create a mesh grid for the plot
-        x_vals = np.linspace(-5, 5, n)
-        y_vals = np.linspace(-5, 5, n)
+        x_vals = np.linspace(a, b, n)
+        y_vals = np.linspace(c, d, n)
         X_, Y_ = np.meshgrid(x_vals, y_vals)
 
         # Create empty matrices to store the vector field components
@@ -58,7 +58,7 @@ def points_ODE(dx_input, dy_input, n, scale):
         U_normalized = U / N
         V_normalized = V / N
 
-        quiver = ff.create_quiver(X_ - 0.25*U_normalized, Y_ - 0.25*V_normalized, U_normalized, V_normalized, scale=scale,
+        quiver = ff.create_quiver(X_ - 0.5*scale*U_normalized, Y_ - 0.5*scale*V_normalized, U_normalized, V_normalized, scale=scale,
                                 line=dict(color='blue', width=1),
                                 name='Vector Field')
         fig.add_traces(quiver.data)
@@ -73,7 +73,6 @@ def points_ODE(dx_input, dy_input, n, scale):
 
     except:
         pass
-    
    
 
     fig.update_layout(

@@ -32,4 +32,4 @@ app.layout = html.Div(className='back',children=[
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port='1254')
+    app.run(debug=True)

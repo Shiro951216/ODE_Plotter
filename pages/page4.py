@@ -23,7 +23,7 @@ layout = html.Div(className='Pages', children=[
     html.Div(className='div_parametros', children=[
         html.H2('PARAMETERS', style={'text-align': 'center'}),
 
-        html.Div(children=[
+        html.Div(className='div_flex',children=[
             html.Div(className='div_flex',
                      children=[html.Div(className='div_flex', children=[
                 html.H3('dx = ', style={'text-align': 'center'}),
@@ -36,6 +36,38 @@ layout = html.Div(className='Pages', children=[
                 html.H3('dy = ', style={'text-align': 'center'}),
                 dcc.Input(type='text', id='dy', debounce=True, placeholder="Enter dy expression")]),  
                 html.Div('',className='empty'),
+            ], style={'padding': '10px'}),
+        ]),
+
+        html.Div(className='div_flex',children=[
+            html.Div(className='div_flex',
+                     children=[html.Div(className='div_flex', children=[
+                html.H3('x_min =  ', style={'text-align': 'center'}),
+                dcc.Input(type='number', id='x_min', debounce=True, value = -5)]),
+                html.Div('',className='empty'),
+            ], style={'padding': '10px'}),
+            
+            html.Div(className='div_flex',
+                     children=[html.Div(className='div_flex', children=[
+                html.H3('x_max =  ', style={'text-align': 'center'}),
+                dcc.Input(type='number', id='x_max', debounce=True, value = 5)]),
+                html.Div('',className='empty'),
+            ], style={'padding': '10px'}),
+        ]),
+
+        html.Div(className='div_flex', children=[
+            html.Div(className='div_flex',
+                     children=[html.Div(className='div_flex', children=[
+                html.H3('y_min =', style={'text-align': 'center'}),
+                dcc.Input(type='number', id='y_min', debounce=True, value = -5)]),
+                html.Div('',className='empty'),
+            ], style={'padding': '10px'}),
+            
+            html.Div(className='div_flex',
+                     children=[html.Div(className='div_flex', children=[
+                html.H3('y_max =  ', style={'text-align': 'center'}),
+                dcc.Input(type='number', id='y_max', debounce=True, value = 5)]),
+                html.Div('',className='empty'),  
             ], style={'padding': '10px'}),
         ]),
     ]),
@@ -59,8 +91,12 @@ layout = html.Div(className='Pages', children=[
 @callback(
     Output('figura_4', 'figure'),
     Input('dx', 'value'),
-    Input('dy', 'value')
+    Input('dy', 'value'),
+    Input('x_max', 'value'),
+    Input('x_min', 'value'),
+    Input('y_max', 'value'),
+    Input('y_min', 'value'),
 )
-def process_inputs(dx, dy):
-    fig = points_ODE(dx, dy, 30, scale=0.2)
+def process_inputs(dx, dy, x_max, x_min, y_max, y_min):
+    fig = points_ODE(dx, dy, x_min, x_max, y_min, y_max, 30, scale=0.3)
     return fig
