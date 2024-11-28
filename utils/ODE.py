@@ -2,7 +2,46 @@ import plotly.graph_objects as go
 import plotly.figure_factory as ff
 import numpy as np
 import sympy as sp
-from sympy import symbols, sympify, solve
+from sympy import symbols, sympify, Matrix, solve, simplify
+
+def classify_point(T, D):
+    # Calcular el discriminante
+    delta = T**2 - 4 * D
+    
+    # Clasificación según T, D y delta
+    if D < 0:
+        return "Punto Silla (saddle point)"
+    elif D > 0:
+        if delta > 0:
+            if T < 0:
+                return "Nodo estable (atractor)"
+            elif T > 0:
+                return "Nodo inestable (repulsor)"
+        elif delta < 0:
+            if T < 0:
+                return "Foco estable (espiral estable)"
+            elif T > 0:
+                return "Foco inestable (espiral inestable)"
+        elif delta == 0:
+            return "Nodo degenerado"
+    elif D == 0 and delta < 0:
+        return "Centro"
+    
+    return "Punto que no se puede clasificar"
+
+
+def temp(X, Y, critical_points, sym):
+    x,y = sym
+    J = simplify(X.jacobian(Y))
+
+    text = ""
+    for point in critical_points:
+        J_ = J.subs({x: point[0], y: point[1]})
+        T = simplify(J_.trace())
+        D = simplify(J_.det())
+        text += f"El punto ({point[0]}, {point[1]}) es un {classify_point(T, D)}\n"
+
+    return text
 
 def points_ODE(dx_input, dy_input, a, b, c, d, n, scale):
     """
@@ -21,6 +60,20 @@ def points_ODE(dx_input, dy_input, a, b, c, d, n, scale):
 
     fig = go.Figure()
 
+    text = 'No se puede clasificar'
+    try:
+        # Define symbols
+        x_sym, y_sym = sp.symbols("x y")
+
+        # Convert input expressions to symbolic form
+        dx = sp.sympify(dx_input)
+        dy = sp.sympify(dy_input)
+        # Calculate critical points
+        A = np.array(solve([dx, dy], (x_sym, y_sym))).astype(float)
+        text = temp(Matrix([dx, dy]),Matrix([x_sym, y_sym]),A, [x_sym, y_sym])
+    except:
+        pass
+
     try:
         
         # Define symbols
@@ -29,15 +82,6 @@ def points_ODE(dx_input, dy_input, a, b, c, d, n, scale):
         # Convert input expressions to symbolic form
         dx = sp.sympify(dx_input)
         dy = sp.sympify(dy_input)
-
-        # dx_lambd = sp.lambdify((x_sym,y_sym), dx, 'numpy')
-        # dy_lambd = sp.lambdify((x_sym,y_sym), dy, 'numpy')
-
-        # # find jacobian
-        # A = sp.Matrix([dx, dy])
-        # X = sp.Matrix([x_sym, y_sym])
-        # J = A.jacobian(X)
-        # eig = J.eigenvals()
         
         # Create a mesh grid for the plot
         x_vals = np.linspace(a, b, n)
@@ -106,4 +150,4 @@ def points_ODE(dx_input, dy_input, a, b, c, d, n, scale):
         showgrid=True
     )    
 
-    return fig
+    return fig, text

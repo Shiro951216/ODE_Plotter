@@ -27,25 +27,25 @@ layout = html.Div(className='Pages', children=[
         html.Div(className='div_flex', children=[
             html.Div([
                 html.H3('Initial Population'),
-                dcc.Input(type='number', value=1500, id='initial_population', step=1, min=0)  
+                dcc.Input(type='number', value=1500, id='initial_population', debounce=True, step=1, min=0)  
             ]),
             html.Div([
                 html.H3('Initial Infected Population'),
-                dcc.Input(type='number', value=1, id='infected_population', step=1, min=1)  
+                dcc.Input(type='number', value=1, id='infected_population', debounce=True, step=1, min=1)  
             ]),
             html.Div([
                 html.H3('Initial Recovery Population'),
-                dcc.Input(type='number', value=0, id='recovery_population', step=1, min=0) 
+                dcc.Input(type='number', value=0, id='recovery_population', debounce=True, step=1, min=0) 
             ]),
         ]),
         html.Div(className='div_flex', children=[
             html.Div([
                 html.H3('Initial Transmission Rate'),
-                dcc.Input(type='number', value=0.00050, id='transmission_rate', step=0.00001, min=0) 
+                dcc.Input(type='number', value=0.00050, id='transmission_rate', debounce=True, step=0.00001, min=0) 
             ]),
             html.Div([
                 html.H3('Initial Recovery Rate'),
-                dcc.Input(type='number', value=0.01, id='recovery_rate', step=0.001, min=0) 
+                dcc.Input(type='number', value=0.01, id='recovery_rate', debounce=True, step=0.001, min=0) 
             ]),
             html.Div([
                 html.H3('Time'),

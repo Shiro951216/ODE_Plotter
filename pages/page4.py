@@ -27,14 +27,14 @@ layout = html.Div(className='Pages', children=[
             html.Div(className='div_flex',
                      children=[html.Div(className='div_flex', children=[
                 html.H3('dx = ', style={'text-align': 'center'}),
-                dcc.Input(type='text', id='dx', debounce=True, placeholder="Enter dx expression")]),
+                dcc.Input(type='text', id='dx', debounce=True, value='x*(y+3)',placeholder="Enter dx expression")]),
                 html.Div('',className='empty'),
             ], style={'padding': '10px'}),
             
             html.Div(className='div_flex',
                      children=[html.Div(className='div_flex', children=[
                 html.H3('dy = ', style={'text-align': 'center'}),
-                dcc.Input(type='text', id='dy', debounce=True, placeholder="Enter dy expression")]),  
+                dcc.Input(type='text', id='dy', debounce=True, value='(x-2)*y', placeholder="Enter dy expression")]),  
                 html.Div('',className='empty'),
             ], style={'padding': '10px'}),
         ]),
@@ -70,6 +70,10 @@ layout = html.Div(className='Pages', children=[
                 html.Div('',className='empty'),  
             ], style={'padding': '10px'}),
         ]),
+        html.Div(children=[
+            html.H2('Resultados'),
+            html.Pre(id='text')
+        ]),
     ]),
 
     html.Div(className='div_grafica', children=[
@@ -90,6 +94,7 @@ layout = html.Div(className='Pages', children=[
 
 @callback(
     Output('figura_4', 'figure'),
+    Output('text', 'children'),
     Input('dx', 'value'),
     Input('dy', 'value'),
     Input('x_max', 'value'),
@@ -98,5 +103,5 @@ layout = html.Div(className='Pages', children=[
     Input('y_min', 'value'),
 )
 def process_inputs(dx, dy, x_max, x_min, y_max, y_min):
-    fig = points_ODE(dx, dy, x_min, x_max, y_min, y_max, 30, scale=0.3)
-    return fig
+    fig, text = points_ODE(dx, dy, x_min, x_max, y_min, y_max, 30, scale=0.3)
+    return fig, text
