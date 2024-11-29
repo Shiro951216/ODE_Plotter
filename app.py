@@ -1,11 +1,15 @@
 from dash import Dash, html, dcc
 import dash
 
+# external_scripts = [
+#     {'src': 'https://cdn.tailwindcss.com'}
+# ]
 
 app = Dash(
     __name__,
     use_pages=True,
     suppress_callback_exceptions=True,
+    # external_scripts=external_scripts
 )
 
 
@@ -24,10 +28,29 @@ app.layout = html.Div(className='back',children=[
         html.Div('',className='empty'),
         dcc.Link(html.Button('SIR Model', className='boton edo_3'), href='/SIR'),
         html.Div('',className='empty'),
-        dcc.Link(html.Button('Critical Points', className='boton edo_4'), href='/criticalPoint')
+        dcc.Link(html.Button('Critical Points', className='boton edo_4'), href='/criticalPoint'),
+        html.Div('',className='empty'),
+        dcc.Link(html.Button('SEIARS', className='boton edo_5'), href='/project')
     ]),
     
-    dash.page_container
+    html.Div(children=[dash.page_container],
+             style={'margin-left': 'auto', 'margin-right': 'auto', 'padding-left':'0.5rem', 'padding-right':'0.5rem',
+                'padding-top':'1rem', 'padding-bottom':'1rem'}),
+
+    html.Div(children=[
+        html.Div(children=[
+            html.P(children=[
+                html.Strong("Alumno: "),
+                html.Span("Vilchez Quispe, Yoshiro Cardich")
+            ]),
+            html.P(children=[
+                html.Strong("Código: "),
+                html.Span("22140122")
+            ]),
+        ], style = {'height': '100%', 'display':'flex', 'flex-direction':'row',
+                    'justify-content':'center', 'items-align':'center', 'gap':'30rem', 'color':'rgb(255 255 255)'}),
+    ], style = {'margin-left': 'auto', 'margin-right': 'auto', 'height':'2.5rem', 'margin-top':'1.5rem', 'padding-left':'0.5rem', 'padding-right':'0.5rem',
+                'padding-top':'1rem', 'padding-bottom':'1rem', 'background-color': 'rgb(0 0 0)'})
 ])
 
 

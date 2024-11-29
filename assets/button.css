@@ -56,6 +56,13 @@
     transform: scale(1.05); /* Aumentar ligeramente el tamaño al pasar el mouse */
 }
 
+/** Boton 4 **/
+.edo_5:hover {
+    color: white; /* Cambiar color del texto al pasar el mouse */
+    background-color: rgb(0, 0, 0); /* Cambiar color de fondo al pasar el mouse */
+    transform: scale(1.05); /* Aumentar ligeramente el tamaño al pasar el mouse */
+}
+
 /** Estilo específico para el botón de alternar el campo de vectores **/
 .toggle-button {
     background-color: rgb(255, 255, 255); /* Color de fondo */

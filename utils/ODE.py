@@ -22,12 +22,24 @@ def classify_point(T, D):
                 return "Foco estable (espiral estable)"
             elif T > 0:
                 return "Foco inestable (espiral inestable)"
-        elif delta == 0:
-            return "Nodo degenerado"
-    elif D == 0 and delta < 0:
-        return "Centro"
-    
-    return "Punto que no se puede clasificar"
+            else:
+                return "Centro"
+        else:
+            if T > 0:
+                return "Nodo degenerado inestable"
+            elif T < 0:
+                return "Nodo degenerado estable"
+            else:
+                return "Flujo uniforme"
+    else:
+        if T > 0:
+            return "Linea de puntos inestables"
+        elif T < 0:
+            return "Linea de puntos estables"
+        else:
+            return "Flujo uniforme"
+
+    return f"Punto que no se puede clasificar"
 
 
 def temp(X, Y, critical_points, sym):
@@ -59,8 +71,7 @@ def points_ODE(dx_input, dy_input, a, b, c, d, n, scale):
     """
 
     fig = go.Figure()
-
-    text = 'No se puede clasificar'
+    text = 'No se pueden clasificar'
     try:
         # Define symbols
         x_sym, y_sym = sp.symbols("x y")
@@ -71,6 +82,8 @@ def points_ODE(dx_input, dy_input, a, b, c, d, n, scale):
         # Calculate critical points
         A = np.array(solve([dx, dy], (x_sym, y_sym))).astype(float)
         text = temp(Matrix([dx, dy]),Matrix([x_sym, y_sym]),A, [x_sym, y_sym])
+        if text == '':
+            text = 'No tiene puntos críticos, flujo uniforme'
     except:
         pass
 
