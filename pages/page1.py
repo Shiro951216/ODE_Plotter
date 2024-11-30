@@ -28,40 +28,40 @@ layout = html.Div(className='Pages', children=[
         html.Div(className='div_flex', children=[
             html.Div([
                 html.H3('Initial Population'),
-                dcc.Input(type='number', value=10, id='pob_ini')
+                dcc.Input(type='number', value=10, id='pob_ini', debounce= True)
             ]),
         ]),
 
         html.Div(className='div_flex', children=[
             html.Div([
                 html.H3('Initial Time'),
-                dcc.Input(type='number', value=0, id='time_ini')
+                dcc.Input(type='number', value=0, id='time_ini', debounce= True)
             ]),
             html.Div([
                 html.H3('Final Time'),
-                dcc.Input(type='number', value=60, id='time_fin')
+                dcc.Input(type='number', value=60, id='time_fin', debounce= True)
             ]),
         ]),
 
         html.Div(className='div_flex', children=[
             html.Div([
                 html.H3('Growth Rate'),
-                dcc.Input(max=5, type='number', value=0.15, id='r'),
+                dcc.Input(max=5, type='number', value=0.15, id='r', debounce= True),
             ]),
             html.Div([
                 html.H3('Carrying Capacity'),
-                dcc.Input(type='number', value=150, id='K'),
+                dcc.Input(type='number', value=150, id='K', debounce= True),
             ]),
         ]),
 
         html.Div(className='div_flex', children=[
             html.Div([
                 html.H3('Vector Field'),
-                dcc.Input(type='number', value=15, id='mallado'),
+                dcc.Input(type='number', value=15, id='mallado', debounce= True),
             ]),
             html.Div([
                 html.H3('Vector Size'),
-                dcc.Input(type='number', value=1, id='size_vec')
+                dcc.Input(type='number', value=1, id='size_vec', debounce= True)
             ]),
         ]),
 

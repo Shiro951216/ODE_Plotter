@@ -28,37 +28,37 @@ layout = html.Div(className='Pages', children=[
         html.Div(className='div_flex', children=[
             html.Div([
                 html.H3('Initial Prey Population'),
-                dcc.Input(type='number', value=40, id='prey_ini', step=1, min=0)  
+                dcc.Input(type='number', value=40, id='prey_ini', step=1, min=0, debounce= True)  
             ]),
             html.Div([
                 html.H3('Initial Predation Population'),
-                dcc.Input(type='number', value=9, id='pred_ini', step=1, min=0) 
+                dcc.Input(type='number', value=9, id='pred_ini', step=1, min=0, debounce= True) 
             ]),
         ]),
 
         html.Div(className='div_flex', children=[
             html.Div([
                 html.H3('Prey Growth Rate'),
-                dcc.Input(type='number', value=0.1, id='prey_grow', step=0.01, min=0) 
+                dcc.Input(type='number', value=0.1, id='prey_grow', step=0.01, min=0, debounce= True) 
             ]),
             html.Div([
                 html.H3('Predation Rate'),
-                dcc.Input(type='number', value=0.01, id='pred_rate', step=0.01, min=0) 
+                dcc.Input(type='number', value=0.01, id='pred_rate', step=0.01, min=0, debounce= True) 
             ]),
             html.Div([
                 html.H3('Predator Growth Rate'),
-                dcc.Input(type='number', value=0.01, id='pred_grow', step=0.01, min=0)  
+                dcc.Input(type='number', value=0.01, id='pred_grow', step=0.01, min=0, debounce= True)  
             ]),
             html.Div([
                 html.H3('Predator Mortality Rate'),
-                dcc.Input(type='number', value=0.2, id='pred_mort', step=0.01, min=0)  
+                dcc.Input(type='number', value=0.2, id='pred_mort', step=0.01, min=0, debounce= True)  
             ]),
         ]),
 
         html.Div(className='div_flex', children=[
             html.Div([
                 html.H3('Time'),
-                dcc.Input(type='number', value=75, id='time', step=0.1, min=0)  
+                dcc.Input(type='number', value=75, id='time', step=1, min=0, debounce= True)  
             ]),
         ]),
     ]),

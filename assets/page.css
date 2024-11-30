@@ -13,31 +13,13 @@
 .div_parametros {
     flex: 1;
     background-color: rgb(255, 255, 255);
-    width: 100%; /* Ocupan todo el ancho en pantallas pequeñas */
+    width: auto; /* Ocupan todo el ancho en pantallas pequeñas */
     padding: 10px;
     margin: 20px; /* Separar visualmente los bloques */
-    box-sizing: border-box; /* Incluir padding en el cálculo del ancho */
-}
-
-.div_parametros1 {
-    /* flex: 1; */
-    background-color: rgb(255, 255, 255);
-    width: 99%; 
-    padding: 10px;
-    margin: 10px;
     box-sizing: border-box; /* Incluir padding en el cálculo del ancho */
 }
 
 .div_grafica{
-    flex:1;
-    background-color: rgb(255, 255, 255);
-    width: 100%; /* Ocupan todo el ancho en pantallas pequeñas */
-    padding: 10px;
-    margin: 20px; /* Separar visualmente los bloques */
-    box-sizing: border-box;
-}
-
-.div_grafica1{
     flex:1;
     background-color: rgb(255, 255, 255);
     width: 100%; /* Ocupan todo el ancho en pantallas pequeñas */

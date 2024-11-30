@@ -80,10 +80,28 @@ def points_ODE(dx_input, dy_input, a, b, c, d, n, scale):
         dx = sp.sympify(dx_input)
         dy = sp.sympify(dy_input)
         # Calculate critical points
-        A = np.array(solve([dx, dy], (x_sym, y_sym))).astype(float)
-        text = temp(Matrix([dx, dy]),Matrix([x_sym, y_sym]),A, [x_sym, y_sym])
-        if text == '':
-            text = 'No tiene puntos críticos, flujo uniforme'
+
+        try:
+            A = np.array(solve([dx, dy], (x_sym, y_sym))).astype(float)
+            text = temp(Matrix([dx, dy]),Matrix([x_sym, y_sym]),A, [x_sym, y_sym])
+            if text == '':
+                text = 'No tiene puntos críticos, flujo uniforme'
+        except:
+            A = solve([dx, dy], (x_sym, y_sym), dict=True)
+            critx = []
+            crity = []
+            for dicts in A:
+                critx.append(float([*dicts.values()][0]))
+                crity.append(float([*dicts.values()][1]))
+            
+            critp = []
+            for i,e in zip(critx, crity):
+                critp.append(tuple([i,e]))
+            text = temp(Matrix([dx, dy]),Matrix([x_sym, y_sym]),critp, [x_sym, y_sym])
+            if text == '':
+                text = 'No tiene puntos críticos, flujo uniforme'
+            fig.add_traces(go.Scatter(x = critx, y = crity, marker_color='rgba(255, 0, 0, 1)', mode='markers',marker=dict(size=10),
+                                  name='Eq Point'))
     except:
         pass
 
@@ -125,6 +143,7 @@ def points_ODE(dx_input, dy_input, a, b, c, d, n, scale):
             A = np.array(sp.solve([dx, dy], (x_sym, y_sym))).astype(float)
             fig.add_traces(go.Scatter(x = A[:,0], y = A[:,1], mode='markers',marker=dict(size=10),
                                   name='Eq Point'))
+            
         except:
             pass
 

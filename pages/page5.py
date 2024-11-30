@@ -13,7 +13,7 @@ layout = html.Div(
                     html.Div(
                         children=[
                             html.Div(
-                                    children="Modelo virus informático SEIARS",
+                                    children="SEIARS Informatic Virus Model",
                                     style = {'font-weight':'bold','font-size': '1.5rem','line-height': '2rem'}),
                             html.Div(
                                     children=[
@@ -21,13 +21,13 @@ layout = html.Div(
                                                 html.Img(
                                                     src='/assets/model.png', 
                                                     alt='Imagen de modelo',
-                                                    style= {'width': '30rem'} 
+                                                    style= {'width': '43rem'} 
                                                 ),
                                                 # Imagen 2
                                                 html.Img(
                                                     src='/assets/model1.png', 
                                                     alt='Imagen de modelo',
-                                                    style= {'width': '30rem'} 
+                                                    style= {'width': '35rem'} 
                                                 )
                                             ],
                                             style = {'display':'flex', 'gap':'2.25rem'}
@@ -36,7 +36,7 @@ layout = html.Div(
     html.Div(
         children=[
         html.Div(children=[
-            html.H2(children='Parámetros',
+            html.H2(children='PARAMETERS',
                     style = {'font-weight':'bold', 'text-align':'center', 'font-size': '1.5rem','line-height': '2rem'}),
             html.Div(
                 children=[
@@ -44,36 +44,36 @@ layout = html.Div(
                 html.Div(
                     children=[
                         html.Div([
-                            html.H3(children='Población inicial', style={'font-weight': '600'}),
+                            html.H3(children='Initial Population (N0)', style={'font-weight': '600'}),
                             dcc.Input(type='number', value=1000, id='pob_ini', debounce=True, style={'width':'100%', 'font-size': '0.875rem', 'line-height': '1.25rem', 'padding-left': '0.5rem', 'padding-right':'0.5rem',
                                 'padding-top': '0.25rem', 'padding-bottom':'0.25rem', 'border-width': '1px', 'border-color': 'rgb(156 163 175)' })
-                        ]),
+                        ], style= {'padding-left':'2rem'}),
                         html.Div([
-                            html.H3(children='Expuestos'),
+                            html.H3(children='Exposed (E)'),
                             dcc.Input(type='number', value=0, id='pob_exp', debounce=True, style={'width':'100%', 'font-size': '0.875rem', 'line-height': '1.25rem', 'padding-left': '0.5rem', 'padding-right':'0.5rem',
                                 'padding-top': '0.25rem', 'padding-bottom':'0.25rem', 'border-width': '1px', 'border-color': 'rgb(156 163 175)' })
-                        ]),
+                        ], style= {'padding-left':'2rem'}),
                         html.Div([
-                            html.H3(children='Infectados'),
+                            html.H3(children='Infected (I)'),
                             dcc.Input(type='number', value=1, id='pob_inf', debounce=True, style={'width':'100%', 'font-size': '0.875rem', 'line-height': '1.25rem', 'padding-left': '0.5rem', 'padding-right':'0.5rem',
                                 'padding-top': '0.25rem', 'padding-bottom':'0.25rem', 'border-width': '1px', 'border-color': 'rgb(156 163 175)' })
-                        ]),
+                        ], style= {'padding-left':'2rem'}),
                         html.Div([
-                            html.H3(children='Asintomáticos'),
+                            html.H3(children='Asymptomatic (A)'),
                             dcc.Input(type='number', value=1, id='pob_asin', debounce=True, style={'width':'100%', 'font-size': '0.875rem', 'line-height': '1.25rem', 'padding-left': '0.5rem', 'padding-right':'0.5rem',
                                 'padding-top': '0.25rem', 'padding-bottom':'0.25rem', 'border-width': '1px', 'border-color': 'rgb(156 163 175)' })
-                        ]),
+                        ], style= {'padding-left':'2rem'}),
                         html.Div([
-                            html.H3(children='Recuperados'),
+                            html.H3(children='Recomevered/Removed (R)'),
                             dcc.Input( type='number', value=0, id='pob_rec', debounce=True, style={'width':'100%', 'font-size': '0.875rem', 'line-height': '1.25rem', 'padding-left': '0.5rem', 'padding-right':'0.5rem',
                                 'padding-top': '0.25rem', 'padding-bottom':'0.25rem', 'border-width': '1px', 'border-color': 'rgb(156 163 175)' })
-                        ]),
+                        ], style= {'padding-left':'2rem'}),
                         html.Div([
-                            html.H3(children='Tiempo'),
+                            html.H3(children='Period (años)'),
                             dcc.Input( type='number', value=10, id='tiempo', debounce=True, style={'width':'100%', 'font-size': '0.875rem', 'line-height': '1.25rem', 'padding-left': '0.5rem', 'padding-right':'0.5rem',
                                 'padding-top': '0.25rem', 'padding-bottom':'0.25rem', 'border-width': '1px', 'border-color': 'rgb(156 163 175)' })
-                        ]),
-                ], style={'flex':'1 1 0%', 'margin-top':'0.25rem'}),
+                        ], style= {'padding-left':'2rem'}),
+                ], style={'flex':'1 1 0%', 'margin-top':'0.25rem', 'margin-bottom':'2rem'}),
                 # Parámetros adicionales
                 html.Div(children=[
                     html.Div([
@@ -82,72 +82,72 @@ layout = html.Div(
                                 'padding-top': '0.25rem', 'padding-bottom':'0.25rem', 'border-width': '1px', 'border-color': 'rgb(156 163 175)' })
                     ]),
                     html.Div([
-                        html.H3(children='mu'),
+                        html.H3(children='mu (μ)'),
                         dcc.Input( type='number', value=0.0688, id='mu', debounce=True, style={'width':'100%', 'font-size': '0.875rem', 'line-height': '1.25rem', 'padding-left': '0.5rem', 'padding-right':'0.5rem',
                                 'padding-top': '0.25rem', 'padding-bottom':'0.25rem', 'border-width': '1px', 'border-color': 'rgb(156 163 175)' })
                     ]),
                     html.Div([
-                        html.H3(children='lambda'),
+                        html.H3(children='lambda (λ)'),
                         dcc.Input( type='number', value=0.35, id='lambda1', debounce=True, style={'width':'100%', 'font-size': '0.875rem', 'line-height': '1.25rem', 'padding-left': '0.5rem', 'padding-right':'0.5rem',
                                 'padding-top': '0.25rem', 'padding-bottom':'0.25rem', 'border-width': '1px', 'border-color': 'rgb(156 163 175)' })
                     ]),
                     html.Div([
-                        html.H3(children='xi1'),
+                        html.H3(children='xi1 (ξ1)'),
                         dcc.Input( type='number', value=0.08, id='xi1', debounce=True, style={'width':'100%', 'font-size': '0.875rem', 'line-height': '1.25rem', 'padding-left': '0.5rem', 'padding-right':'0.5rem',
                                 'padding-top': '0.25rem', 'padding-bottom':'0.25rem', 'border-width': '1px', 'border-color': 'rgb(156 163 175)' })
                     ]),
                     html.Div([
-                        html.H3(children='xi2'),
+                        html.H3(children='xi2 (ξ2)'),
                         dcc.Input( type='number', value=0.07, id='xi2', debounce=True, style={'width':'100%', 'font-size': '0.875rem', 'line-height': '1.25rem', 'padding-left': '0.5rem', 'padding-right':'0.5rem',
                                 'padding-top': '0.25rem', 'padding-bottom':'0.25rem', 'border-width': '1px', 'border-color': 'rgb(156 163 175)' })
                     ]),
                     html.Div([
-                        html.H3(children='beta'),
+                        html.H3(children='beta (β)'),
                         dcc.Input( type='number', value=0.01, id='beta', debounce=True, style={'width':'100%', 'font-size': '0.875rem', 'line-height': '1.25rem', 'padding-left': '0.5rem', 'padding-right':'0.5rem',
                                 'padding-top': '0.25rem', 'padding-bottom':'0.25rem', 'border-width': '1px', 'border-color': 'rgb(156 163 175)' })
                     ]),
                 ], style={'flex':'1 1 0%', 'margin-top':'0.25rem'}),
                 html.Div(children=[
                     html.Div([
-                        html.H3(children='rho1'),
+                        html.H3(children='rho1 (ρ1)'),
                         dcc.Input(type='number', value=0.7, id='rho1', debounce=True, style={'width':'100%', 'font-size': '0.875rem', 'line-height': '1.25rem', 'padding-left': '0.5rem', 'padding-right':'0.5rem',
                                 'padding-top': '0.25rem', 'padding-bottom':'0.25rem', 'border-width': '1px', 'border-color': 'rgb(156 163 175)' })
-                    ]),
+                    ], style= {'padding-right':'2.5rem'}),
                     html.Div([
-                        html.H3(children='rho2'),
+                        html.H3(children='rho2 (ρ2)'),
                         dcc.Input(type='number', value=0.05, id='rho2', debounce=True, style={'width':'100%', 'font-size': '0.875rem', 'line-height': '1.25rem', 'padding-left': '0.5rem', 'padding-right':'0.5rem',
                                 'padding-top': '0.25rem', 'padding-bottom':'0.25rem', 'border-width': '1px', 'border-color': 'rgb(156 163 175)' })
-                    ]),
+                    ], style= {'padding-right':'2.5rem'}),
                     html.Div([
-                        html.H3(children='alpha'),
+                        html.H3(children='alpha (α)'),
                         dcc.Input(type='number', value=0.75, id='alpha', debounce=True, style={'width':'100%', 'font-size': '0.875rem', 'line-height': '1.25rem', 'padding-left': '0.5rem', 'padding-right':'0.5rem',
                                 'padding-top': '0.25rem', 'padding-bottom':'0.25rem', 'border-width': '1px', 'border-color': 'rgb(156 163 175)' })
-                    ]),
+                    ], style= {'padding-right':'2.5rem'}),
                     html.Div([
-                        html.H3(children='delta'),
+                        html.H3(children='delta (δ)'),
                         dcc.Input(type='number', value=0.04, id='delta', debounce=True, style={'width':'100%', 'font-size': '0.875rem', 'line-height': '1.25rem', 'padding-left': '0.5rem', 'padding-right':'0.5rem',
                                 'padding-top': '0.25rem', 'padding-bottom':'0.25rem', 'border-width': '1px', 'border-color': 'rgb(156 163 175)' })
-                    ]),
+                    ], style= {'padding-right':'2.5rem'}),
                     html.Div([
-                        html.H3(children='psi'),
+                        html.H3(children='psi (ψ)'),
                         dcc.Input(type='number', value=0.1, id='psi', debounce=True, style={'width':'100%', 'font-size': '0.875rem', 'line-height': '1.25rem', 'padding-left': '0.5rem', 'padding-right':'0.5rem',
                                 'padding-top': '0.25rem', 'padding-bottom':'0.25rem', 'border-width': '1px', 'border-color': 'rgb(156 163 175)' })
-                    ]),
+                    ], style= {'padding-right':'2.5rem'}),
                     html.Div([
-                        html.H3(children='eta'),
+                        html.H3(children='eta (η)'),
                         dcc.Input(type='number', value=0.001, id='eta', debounce=True, style={'width':'100%', 'font-size': '0.875rem', 'line-height': '1.25rem', 'padding-left': '0.5rem', 'padding-right':'0.5rem',
                                 'padding-top': '0.25rem', 'padding-bottom':'0.25rem', 'border-width': '1px', 'border-color': 'rgb(156 163 175)' })
-                    ]),
+                    ], style= {'padding-right':'2.5rem'}),
                 ], style={'flex':'1 1 0%', 'margin-top':'0.25rem'}),
-            ], style= {'display':'flex', 'gap':'2.5rem'}),
-        ], style = {'margin-top': '0.75rem'}),
+            ], style= {'display':'flex', 'gap':'5rem'}),
+        ], style = {'margin-top': '0.75rem', 'background-color':'rgb(255,255,255)', 'border-radius': '2.5rem'}),
         html.Div(children=[
-            html.Span(children="Tasa de reproducción básica: "),
+            html.Span(children="Basic Reproductive Number (R0): "),
             html.Span(id="basic"),
         ], style = {'font-weight': 'bold'}),
         # Sección de gráfica
         html.Div(children=[
-            html.H2(children='Resultados',
+            html.H2(children='RESULTS',
                     style = {'font-weight':'bold', 'text-align':'center', 'font-size': '1.5rem','line-height': '2rem'}),
             html.Div(children=[
                 html.Div(children=dcc.Loading(type='default', children=dcc.Graph(id='COMPLETO')), style = {'grid-column': 'span 6 / span 6'}),

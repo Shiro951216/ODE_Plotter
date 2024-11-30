@@ -12,8 +12,9 @@ body {
     align-items: center;
     margin: 10px;
     border-radius: 10px;
-    padding: 10px;
-    width: 100%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    width: auto;
     font-family: "Times New Roman", Times, serif;
 }
 
@@ -30,13 +31,14 @@ body {
 }
 
 .main_title {
-    flex: 1 0;
+    flex: 1 1 0%;
     font-size: 1.5em; /* Texto adaptable */
     text-align: center;
 }
 
 .div_flex {
     display: flex;
+    flex: 1 1 0%;
     flex-wrap: wrap; /* Permitir que los elementos se ajusten en pantallas pequeñas */
     justify-content: space-between;
 }
@@ -45,6 +47,7 @@ body {
     flex: 1 1 45%; /* Cada elemento toma un 45% de espacio en pantallas más grandes */
     margin: 5px; /* Espacio entre los elementos */
 }
+
 .empty {
     width: 150px;
 }

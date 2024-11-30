@@ -48,9 +48,10 @@ app.layout = html.Div(className='back',children=[
                 html.Span("22140122")
             ]),
         ], style = {'height': '100%', 'display':'flex', 'flex-direction':'row',
-                    'justify-content':'center', 'items-align':'center', 'gap':'30rem', 'color':'rgb(255 255 255)'}),
-    ], style = {'margin-left': 'auto', 'margin-right': 'auto', 'height':'2.5rem', 'margin-top':'1.5rem', 'padding-left':'0.5rem', 'padding-right':'0.5rem',
-                'padding-top':'1rem', 'padding-bottom':'1rem', 'background-color': 'rgb(0 0 0)'})
+                    'justify-content':'center', 'items-align':'center', 'gap':'40rem', 'color':'rgb(255 255 255)',
+                    'font-size': '1.125rem', 'line-height': '1.75rem'}),
+    ], style = {'margin-left': 'auto', 'margin-right': 'auto', 'height':'2.5rem', 'margin-top':'0.5rem', 'padding-left':'0.5rem', 'padding-right':'0.5rem',
+                'padding-top':'1rem', 'padding-bottom':'2rem', 'background-color': 'rgb(0 0 0)'})
 ])
 
 

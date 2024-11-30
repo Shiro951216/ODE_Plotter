@@ -28,14 +28,14 @@ layout = html.Div(className='Pages', children=[
                      children=[html.Div(className='div_flex', children=[
                 html.H3('dx = ', style={'text-align': 'center'}),
                 dcc.Input(type='text', id='dx', debounce=True, value='x*(y+3)',placeholder="Enter dx expression")]),
-                html.Div('',className='empty'),
+                
             ], style={'padding': '10px'}),
             
             html.Div(className='div_flex',
                      children=[html.Div(className='div_flex', children=[
                 html.H3('dy = ', style={'text-align': 'center'}),
                 dcc.Input(type='text', id='dy', debounce=True, value='(x-2)*y', placeholder="Enter dy expression")]),  
-                html.Div('',className='empty'),
+               
             ], style={'padding': '10px'}),
         ]),
 
@@ -44,14 +44,14 @@ layout = html.Div(className='Pages', children=[
                      children=[html.Div(className='div_flex', children=[
                 html.H3('x_min =  ', style={'text-align': 'center'}),
                 dcc.Input(type='number', id='x_min', debounce=True, value = -5)]),
-                html.Div('',className='empty'),
+                
             ], style={'padding': '10px'}),
             
             html.Div(className='div_flex',
                      children=[html.Div(className='div_flex', children=[
                 html.H3('x_max =  ', style={'text-align': 'center'}),
                 dcc.Input(type='number', id='x_max', debounce=True, value = 5)]),
-                html.Div('',className='empty'),
+                
             ], style={'padding': '10px'}),
         ]),
 
@@ -60,20 +60,20 @@ layout = html.Div(className='Pages', children=[
                      children=[html.Div(className='div_flex', children=[
                 html.H3('y_min =', style={'text-align': 'center'}),
                 dcc.Input(type='number', id='y_min', debounce=True, value = -5)]),
-                html.Div('',className='empty'),
+                
             ], style={'padding': '10px'}),
             
             html.Div(className='div_flex',
                      children=[html.Div(className='div_flex', children=[
                 html.H3('y_max =  ', style={'text-align': 'center'}),
                 dcc.Input(type='number', id='y_max', debounce=True, value = 5)]),
-                html.Div('',className='empty'),  
+                
             ], style={'padding': '10px'}),
         ]),
         html.Div(children=[
             html.H2('Resultados'),
             html.Pre(id='text')
-        ]),
+        ], style={'padding-left':'2rem', 'padding-top':'1.5rem'}),
     ]),
 
     html.Div(className='div_grafica', children=[
